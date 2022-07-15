@@ -1,0 +1,90 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+    
+}
+
+
+h1{
+    font-size: 1rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.btn-w-2{
+    width: 200px;
+}
+
+.logoRedes{
+
+    width: 35px;
+    margin:10px;
+}
+
+.seccionLogin{
+    height: 70vh;
+    width: 100%;
+}
+.formLogin{
+
+    width: 350px;
+}
+
+.logo1, .logo2{
+    width: 100px;
+}
+
+@media (max-width: 1500px){
+    /* Pantalla grande*/
+
+.logo2{
+    display: none;
+}
+.imgPortada{
+    margin-top: -16px;
+}
+/*.imgPortada{
+    margin-top: -16px;
+    width: 100vw;
+    height: 90vh;
+    object-fit: cover;
+}
+
+.seccion2{
+    position: absolute;
+    
+    
+
+}*/
+
+
+}
+
+@media (max-width: 450px){
+    /* celular*/
+.logo2{
+    display: flex;
+    margin: 20px;
+}
+.logo1{
+    display: none;
+}
+
+.imgPortada{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+
+}
+
+
+
+
