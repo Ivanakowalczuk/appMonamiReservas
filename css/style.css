@@ -41,6 +41,31 @@ h1{
     width: 100px;
 }
 
+
+.imgDeporte{
+width: 15vw;
+min-width: 130px;
+margin:4px;
+object-fit: cover;
+
+}
+
+.reservaCancha{
+   max-width: 90vw;
+   margin-top: 20px;
+  
+}
+
+li.hora{
+   list-style: none;
+   margin-right: 7px;
+}
+
+
+.dateForm{
+    border: none;
+    
+}
 @media (max-width: 1500px){
     /* Pantalla grande*/
 
@@ -50,6 +75,17 @@ h1{
 .imgPortada{
     margin-top: -16px;
 }
+
+.cardSeleccionFecha, .reservaCancha{
+    width: 700px;
+    
+}
+
+.seleccionaDeporte{
+    width: 50%;
+}
+
+
 /*.imgPortada{
     margin-top: -16px;
     width: 100vw;
