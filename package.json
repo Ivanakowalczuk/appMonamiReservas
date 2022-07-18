@@ -3,12 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
   },
-  "author": "",
+  "author": "Ivana Kowalczuk",
   "license": "ISC",
   "dependencies": {
-    "jquery-datepicker": "^1.12.3"
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "jquery-datepicker": "^1.12.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }

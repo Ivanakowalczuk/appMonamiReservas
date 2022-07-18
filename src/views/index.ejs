@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONAMI PADEL&SQUASH</title>
+   
+  <%- include('partials/head') %>
+ 
+</head>
+<body class="bg-black">
+     
+    <%- include('partials/header') %>
+    
+     <main>
+     <section class="seccion1 ">
+      <a class="d-flex justify-content-center" href="#">
+        <img class="logo2" src="../img/logo-sin-fondo.png" alt="logo" >
+      </a>
+           <img class= "img-fluid imgPortada" src="../img/gifSquashHome.gif" alt="jugadores Squash">
+     </section>
+     <section class="seccion2 text-light d-flex flex-column justify-content-center align-items-center">
+      
+      <h1>PADEL & SQUASH</h1>
+      <div class="d-flex justify-content-end">
+        <div class="dropdown ">
+          <a  class="d-block  text-decoration-none"  data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn-w-2  text-light btn border-secondary">Reservar Cancha</button>
+          </a>
+          <ul class="dropdown-menu text-small  bg-black  btn-w-2" >
+            <li ><a class="dropdown-item text-secondary" href="reservarSquash">Squash</a></li>
+            <li ><a class="dropdown-item text-secondary" href="reservarPadel">Padel</a></li>
+            </ul>
+        </div>
+      </div>
+        <a href="login"><button class="py-2  btn-w-2 my-4 btn border-secondary text-light">Iniciar Sesión</button></a>
+     
+     </section>
+     
+    </main>
+    
+        <section class="col-12 d-flex justify-content-evenly border-bottom border-top border-secondary">
+          <div class="col-5 m-3 text-light text-center">
+             <p>Enrique Larreta 670</p>
+             <p>Barrio Iponá</p>
+             <p>3512521739</p>
+             <p>Córdoba</p>
+          </div>
+
+            <iframe class="card m-3 " src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13615.427494046926!2d-64.187286!3d-31.445607!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf514ff20db1d5fb!2sMonami%20Padel%20%26%20Squash!5e0!3m2!1ses-419!2sar!4v1625460834331!5m2!1ses-419!2sar" alt="ubicación">
+            </iframe>&gt;
+          
+      </section>
+ 
+      <%- include('partials/footer') %>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
