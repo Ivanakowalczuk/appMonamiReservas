@@ -10,13 +10,13 @@
 
   </head>
   <body class="bg-black">
-       
+    <%- include('partials/profile') %>
       <%- include('partials/header') %>
   
       <main>
         <section class="seccion1">
          
-            <a class="d-flex justify-content-center" href="../pages/index.html">
+            <a class="d-flex justify-content-center" href="/">
               <img class="logo2" src="../img/logo-sin-fondo.png" alt="logo" >
             </a>
             <div class="d-flex justify-content-center">   
@@ -55,12 +55,17 @@
              <div class="card" >
               <div class="d-flex justify-content-center align-middle">
                 
-                  <img src="../img/padel1.jpg" class="img-fluid rounded imgDeporte" alt="...">
+                  <img src="../img/padel1.jpg" class="img-fluid rounded imgDeporte" alt="padel">
            
                 <div class="">
                   <div class="card-body">
                     <h5 class="card-title">Cancha 1</h5>
-                    <ul class="d-flex justify-content-start flex-wrap m-0 p-0">
+                    <ul class="d-flex justify-content-start flex-wrap m-0 p-0" action="reserva">
+                         <%  for (var horas of horas) { %>
+
+                          <li><%= horas.hora %></li>
+
+                          <%  } %>
                       <li class="hora">15:00</li>
                       <li class="hora">15:30</li>
                       <li class="hora">16:00</li>
