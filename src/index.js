@@ -6,10 +6,10 @@ import indexRoutes from './routes/index.js'
 import dotenv from 'dotenv'
 import bcryptjs from 'bcryptjs'
 import  session from 'express-session'
-import db from '../database/db.js'
 import connection from '../database/db.js'
 import router from './routes/authentication.js'
-import horas from './public/horas.js'
+import router2 from './routes/horas.js'
+
 
 
 
@@ -30,9 +30,11 @@ app.use(session({
 
 app.use(indexRoutes)
 app.use(router)
-app.use(horas)
+app.use(router2)
+
 
 app.listen(3000)
 console.log('Server is listening', 3000)
+
 
 

@@ -1,5 +1,6 @@
 import { Router } from 'express'
 
+
 const router = Router()
 
 
@@ -7,7 +8,93 @@ router.get('/register', (req, res) => res.render('register'))
 router.get('/login', (req, res) => res.render('login'))
 router.get('/olvideContras', (req, res) => res.render('olvideContras'))
 
-router.get('/misReservas', (req, res) =>{
+
+
+router.get('/datosReservaPadel', (req, res)=>{
+    if(req.session.loggedin){
+       
+        res.render('datosReservaPadel', {
+          login: true, 
+          name: req.session.name,
+         
+        });
+    
+    } else{
+        res.render('reservarPadel', {
+            login: false,
+            name:  'Mis Reservas'
+        })
+    }
+
+   
+})
+
+
+router.post('/datosReservaPadel', (req, res) => {
+    const cancha = req.body.cancha
+    const deporte = req.body.deporte
+    const fecha = req.body.fecha
+    const hora = req.body.hora
+    const duracion= req.body.duracion
+    const nombreUsuario= req.session.name 
+    const apellidoUsuario= req.session.apellido
+    const id_usuario = req.session.id_usuario
+    connection.query('INSERT INTO reserva SET ?', {cancha: cancha, id_deporte: deporte  }, async(error, results)=>{
+        if(error){
+            if(error.sqlMessage == "La reserva no pudo ser realizada"){
+              console.log("Reserva no realizada")
+              res.render('datosReservaPadel',{
+                alert: true,
+                alertTitle:"Error",
+                alertMessage:"Esta reserva no pudo realizarse",
+                alertIcon: 'error',
+                showConfirmButton: false,
+                timer: 5000,
+                ruta: 'reservarPadel'
+              })
+            }
+            console.log(error)
+        }else{
+            res.render('datosReservaPadel', {
+                alert: true,
+                alertTitle:"Reserva exitosa",
+                alertMessage:"",
+                alertIcon: 'succes',
+                showConfirmButton: false,
+                timer: 3500,
+                ruta: '/reservaExitosa'
+        
+            })
+           }
+        
+            })
+        
+       
+
+})
+    
+router.get('/reservaExitosa', (req, res) => {
+    if(req.session.loggedin){
+                res.render('reservaExitosa', {
+                  login: true, 
+                  name: req.session.name
+                });
+            
+            } else{
+                res.render('login', {
+                    login: false,
+                    name:  'Mis Reservas'
+                })
+            }
+    const deporte = req.body.deporte
+    const fecha = req.body.fecha
+    const hora = req.body.hora
+    const duracion= req.body.duracion
+       
+
+})
+    
+router.get('/misReservas',  (req, res) =>{
     if(req.session.loggedin){
         res.render('misReservas', {
           login: true, 
@@ -23,34 +110,6 @@ router.get('/misReservas', (req, res) =>{
 })
 
 
-router.get('/reservaExitosa', (req, res) => {
-    if(req.session.loggedin){
-        res.render('reservaExitosa', {
-          login: true, 
-          name: req.session.name
-        });
-    
-    } else{
-        res.render('login', {
-            login: false,
-            name:  'Mis Reservas'
-        })
-    }
-})
-router.get('/reservarPadel', (req, res) =>{
-    if(req.session.loggedin){
-        res.render('reservarPadel', {
-          login: true, 
-          name: req.session.name
-        });
-    
-    } else{
-        res.render('reservarPadel', {
-            login: false,
-            name:  'Mis Reservas'
-        })
-    }
-})
 router.get('/reservarSquash', (req, res) => {
     if(req.session.loggedin){
         res.render('reservarSquash', {
@@ -65,20 +124,7 @@ router.get('/reservarSquash', (req, res) => {
         })
     }
 })
-router.get('/datosReservaPadel', (req, res) => {
-    if(req.session.loggedin){
-        res.render('datosReservaPadel', {
-          login: true, 
-          name: req.session.name
-        });
-    
-    } else{
-        res.render('login', {
-            login: false,
-            name:  'Mis Reservas'
-        })
-    }
-})
+
 router.get('/datosReservaSquash', (req, res) => {
     if(req.session.loggedin){
         res.render('datosReservasSquash', {

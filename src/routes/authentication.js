@@ -50,6 +50,7 @@ if(error){
 })
 
 router.post('/login', async (req, res)=>{
+
     const email = req.body.email;
     const pass = req.body.pass;
     let passwordHaash  = await bcryptjs.hash(pass, 8);
@@ -71,7 +72,11 @@ router.post('/login', async (req, res)=>{
             }else{
                 req.session.loggedin = true;
                 req.session.name = results[0].nombre
-                req.session.id_rol = results[0].id_rol
+                req.session.apellido = results[0].apellido
+                req.session.id_usuario = results[0].id
+                 req.session.id_rol = results[0].id_rol
+                 
+                 
                 if(req.session.id_rol === 1){
                     res.render('login', {
                         alert: true,
@@ -121,6 +126,7 @@ router.get('/', (req, res)=>{
       res.render('index', {
         login: true, 
         name: req.session.name,
+        id_usuario: req.session.id_usuario,
         id_rol: req.session.id_rol
       });
   
@@ -128,7 +134,7 @@ router.get('/', (req, res)=>{
       res.render('index', {
           login: false,
           name:  'Mis Reservas',
-          id_rol: req.session.id_rol
+          
       })
   }
   
