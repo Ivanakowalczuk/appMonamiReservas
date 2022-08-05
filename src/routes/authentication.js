@@ -49,7 +49,7 @@ if(error){
 
 })
 
-router.post('/login', async (req, res)=>{
+router.post('/auth', async (req, res)=>{
 
     const email = req.body.email;
     const pass = req.body.pass;

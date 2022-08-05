@@ -22,27 +22,18 @@
          
             <div class="d-flex justify-content-center">   
             <div class="card rounded-pill mx-2 mt-4 cardSeleccionFecha">
-              <div class="card-body d-flex">
-                <div class="seleccionaDeporte d-flex flex-column align-items-center  ">
-                  <label class="text-center">Selecciona un</label>
-                
-                  <div class="dropdown ">
-                    <a  class="d-block  text-decoration-none dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
-                      <button class=" btn btn-light ">Deporte</button>
-                    </a>
+              <div class="card-body d-flex flex-column">
+                <h4 class="text-center">Selecciona un deporte</h4>
+                <div class="seleccionaDeporte d-flex justify-content-center">
+                      <a type="buttton" class="btn btn-outline-secondary m-3 btn-lg"  href="reservarSquash">Squash</a>
+                      <a type="buttton"  class="btn btn-outline-secondary m-3 btn-lg" href="reservarPadel">Padel</a>
                     
-                    <ul class="dropdown-menu text-small" >
-                      <li ><a class="dropdown-item text-secondary" href="reservarSquash">Squash</a></li>
-                      <li ><a class="dropdown-item text-secondary" href="reservarPadel">Padel</a></li>
-                      </ul>
                   </div>
                 </div>
                
-              
-              </form>
               </div>
             </div>
-          </div>
+        
         </section>
         <section class="d-flex flex-column align-items-center seccionReserva">
  
@@ -53,80 +44,105 @@
               <div class="d-flex justify-content-center align-middle ">
                 
                   <img src="../img/padel1.jpg" class="img-fluid rounded imgDeporte" alt="padel">
-                
-           
-                <div class="">
-                  <div class="card-body">
+                         
+                   <div class="card-body">
                      
-                      <div class="seleccionaDeporte d-flex flex-column align-items-center " >
-                   <form action="reservarPadel"  method="post">                      
-                      <div >
-                        <input class="dateForm date datepicker-input"  data-provider="datapicker" type="date" name="fecha" id="fecha" >
-                      </div>
-                      </div>              
+                     
+                   <form class="d-flex flex-column justify-content-center align-items-center form-reserva" action="reservarPadel"  method="post">                      
+                       <input class="dateForm" data-provider="datapicker" type="date" name="fecha" id="fecha" required >
+                      
+                                   
                    
-                      <input value="p1" name="cancha" id="cancha" selected>>
-                      <select class="card-title"><option value="p1" name="cancha" id="cancha" selected><h5>Cancha Padel</h5></option></select>
-                    <select class="d-flex btn justify-content-center flex-wrap m-3" name= "hora_inicio" id="hora_inicio"> 
-                      <option class="hora" type="time" value="900">15:00</option>
-                      <option class="hora" type="time" value="930">15:30</option>
-                      <option class="hora" type="time" value="960">16:00</option>
-                      <option class="hora" type="time" value="990">16:30</option>
-                      <option class="hora" type="time" value="1020">17:00</option>
-                      <option class="hora" type="time" value="1050">17:30</option>
-                      <option class="hora" type="time" value="1080">18:00</option>
-                      <option class="hora" type="time" value="1110">18:30</option>
-
+                      <input value="p1" name="cancha" id="cancha" selected class="d-none">
+                      
+                    <select class="dateForm m-3" name= "hora_inicio" id="hora_inicio" required> 
+                      <option class="hora" type="time" value="" selected  disabled>Hora de inicio</option>
+                      <option class="hora" type="time" value="900"><%=horas[0]%></option>
+                      <option class="hora" type="time" value="930"><%=horas[1]%></option>
+                      <option class="hora" type="time" value="960"><%=horas[2]%></option>
+                      <option class="hora" type="time" value="990"><%=horas[3]%></option>
+                      <option class="hora" type="time" value="1020"><%=horas[4]%></option>
+                      <option class="hora" type="time" value="1050"><%=horas[5]%></option>
+                      <option class="hora" type="time" value="1080"><%=horas[6]%></option>
+                      <option class="hora" type="time" value="1110"><%=horas[7]%></option>
+                      <option class="hora" type="time" value="1140"><%=horas[8]%></option>
+                      <option class="hora" type="time" value="1170"><%=horas[9]%></option>
+                      <option class="hora" type="time" value="1200"><%=horas[10]%></option>
+                      <option class="hora" type="time" value="1230"><%=horas[11]%></option>
+                      <option class="hora" type="time" value="1260"><%=horas[12]%></option>
+                      <option class="hora" type="time" value="1290"><%=horas[13]%></option>
+                      <option class="hora" type="time" value="1320"><%=horas[14]%></option>
+                      <option class="hora" type="time" value="1350"><%=horas[15]%></option>
+                      <option class="hora" type="time" value="1380"><%=horas[16]%></option>
+                      
                     </select>
-                    <select class="d-flex  btn justify-content-center flex-wrap  m-3 "  name= "duracion" id="duracion"> 
-                      <option class="hora" type="time" value="60" selected requiered >60 min</option>
+                    <select class="m-3 dateForm "  name= "duracion" id="duracion" required> 
+                      <option selected disabled>Duración</option>
+                      <option class="hora" type="time" value="60" requiered >60 min</option>
                       <option class="hora" type="time" value="90">90 min</option>
                       <option class="hora" type="time" value="120">120min</option>
                     </select>
 
-                   <a href="reservaExitosa" ><button type="submit" class="btn btn-outline-secondary">Enviar</button></a>
-                  </form> 
+                   <a><button type="submit" class="btn btn-outline-secondary">Enviar</button></a>
+                                 
                   </div>
-                </div>
+                
               </div>
             </div>
             </form>
           </article>
-          <article class="reservaCancha mb-4">
-            <form class="card" >
-             <div class="d-flex justify-content-center align-middle">
+          <article class="reservaCancha">
+            <div class="card" >
+             <div class="d-flex justify-content-center align-middle ">
                
                  <img src="../img/padel2.jpg" class="img-fluid rounded imgDeporte" alt="padel">
-          
-               <div class="">
-                 <div class="card-body text-center">
-                  <form>
-                  <select class="card-title"><option value="p2" name="cancha" id="cancha" selected><h5>Cancha Padel</h5></option></select>
-                    <select class="d-flex btn justify-content-center flex-wrap m-3" name= "hora" id="hora"> 
-                      <option class="hora" type="time" value="900">15:00</option>
-                      <option class="hora" type="time" value="930">15:30</option>
-                      <option class="hora" type="time" value="960">16:00</option>
-                      <option class="hora" type="time" value="990">16:30</option>
-                      <option class="hora" type="time" value="1020">17:00</option>
-                      <option class="hora" type="time" value="1050">17:30</option>
-                      <option class="hora" type="time" value="1080">18:00</option>
-                      <option class="hora" type="time" value="1110">18:30</option>
+                        
+                  <div class="card-body">
+                    
+                    
+                  <form class="d-flex flex-column justify-content-center align-items-center form-reserva" action="reservarPadel"  method="post">                      
+                      <input class="dateForm" data-provider="datapicker" type="date" name="fecha" id="fecha" required >
+                     
+                                  
+                  
+                     <input value="p2" name="cancha" id="cancha" selected class="d-none">
+                     
+                   <select class="dateForm m-3" name= "hora_inicio" id="hora_inicio" scroll="6" required> 
+                     <option class="hora" type="time" value="" selected  disabled>Hora de inicio</option>
+                     <option class="hora" type="time" value="900">15:00</option>
+                     <option class="hora" type="time" value="930">15:30</option>
+                     <option class="hora" type="time" value="960">16:00</option>
+                     <option class="hora" type="time" value="990">16:30</option>
+                     <option class="hora" type="time" value="1020">17:00</option>
+                     <option class="hora" type="time" value="1050">17:30</option>
+                     <option class="hora" type="time" value="1080">18:00</option>
+                     <option class="hora" type="time" value="1110">18:30</option>
+                     <option class="hora" type="time" value="1140">19:00</option>
+                     <option class="hora" type="time" value="1170">19:30</option>
+                     <option class="hora" type="time" value="1200">20:00</option>
+                     <option class="hora" type="time" value="1230">20:30</option>
+                     <option class="hora" type="time" value="1260">21:00</option>
+                     <option class="hora" type="time" value="1290">21:30</option>
+                     <option class="hora" type="time" value="1320">22:00</option>
+                     <option class="hora" type="time" value="1350">22:30</option>
+                     <option class="hora" type="time" value="1380">23:00</option>
 
-                    </select>
-                    <select class="d-flex  btn justify-content-center flex-wrap  m-3 "  name= "duracion" id="duracion"> 
-                      <option class="hora" type="time" value="60" selected requiered >60 min</option>
-                      <option class="hora" type="time" value="90">90 min</option>
-                      <option class="hora" type="time" value="120">120min</option>
-                    </select>
+                   </select>
+                   <select class="m-3 dateForm "  name= "duracion" id="duracion" required> 
+                     <option selected disabled>Duración</option>
+                     <option class="hora" type="time" value="60" requiered >60 min</option>
+                     <option class="hora" type="time" value="90">90 min</option>
+                     <option class="hora" type="time" value="120">120min</option>
+                   </select>
 
-                    <a href="reservaExitosa" ><button type="submit" class="btn btn-outline-secondary">Enviar</button></a>
-                  </form>
-                  </div>
-               </div>
+                  <a href="reservaExitosa" ><button type="submit" class="btn btn-outline-secondary">Enviar</button></a>
+                                
+                 </div>
+               
              </div>
-            </form>
+           </div>
+           </form>
          </article>
-        
         </section>
       </main>
       <%- include('partials/footer') %>

@@ -9,8 +9,9 @@
  
   </head>
   <body class="bg-black">
-    <%- include('partials/profile') %>
+   
       <%- include('partials/header') %>
+      <%- include('partials/profile') %>
       <main>
         <div class="mx-auto cardDeporte  rounded text-center border  border-secondary " >
          <section class="bg-black p-5 w-100 rounded">
@@ -29,20 +30,20 @@
          </section>
             <div class="card-body">
                <div class="p-2">
-                   <h5 class="card-title my-3" >Padel</h5>
+                   <h5 class="card-title my-3" ></h5>
                <div class="d-flex justify-content-around">
                 <div class="recuadroGris rounded d-flex flex-column align-items-center justify-content-center">
-                  <h6 class="mb-0 mx-1"> Viernes</h6>
+                  <h6 class="mb-0 mx-1">Fecha</h6>
                   <div class="d-flex justify-content-center align-items-center">
                    <img class="iconoCalendar" src="../img/calendar.svg">
-                   <p class=" mb-0 mx-1">20/07/22</p>
+                   <p class=" mb-0 mx-1 dateForm"><%=fecha%></p>
                   </div>
                 </div>
                 <div class="recuadroGris rounded d-flex flex-column align-items-center justify-content-center ">
-                  <h6 class="mb-0 mx-1"> 20:30 hs</h6>
+                  <h6 class="mb-0 mx-1"> <%=hora_inicio%>:<%=minutos_inicio%>hs</h6>
                   <div class="d-flex justify-content-center align-items-center ">
                    <img class="iconoCalendar" src="../img/clock.svg">
-                   <p class=" mb-0 mx-1">60 min</p>
+                   <p class=" mb-0 mx-1"><%=duracion%> min</p>
                   </div>
                  </div>
              </div>
@@ -56,6 +57,21 @@
           </div>
       </main>
       <%- include('partials/footer') %>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <% if(typeof alert != "undefined") { %>
+        <script>
+          Swal.fire({
+            title:'<%= alertTitle %>',
+             text: '<%= alertMessage %>',
+             icon: '<%= alertIcon %>',
+             showConfirmButton: '<%= showConfirmButton %>' ,
+             timer: '<%= timer %>',
+          }).then(()=>{
+            window.location= '<%= ruta  %>'
+          })
+        </script>
+      <% } %>
+      
 
       <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

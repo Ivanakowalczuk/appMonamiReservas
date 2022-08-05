@@ -18,141 +18,184 @@
         <a class="d-flex justify-content-center" href="/">
           <img class="logo2" src="../img/logo-sin-fondo.png" alt="logo" >
         </a>
+        
         <div class="d-flex justify-content-center">   
-        <div class="card rounded-pill mx-2 mt-4 cardSeleccionFecha">
-          <div class="card-body d-flex">
-            <div class="seleccionaDeporte d-flex flex-column align-items-center  ">
-              <label class="text-center">Selecciona un</label>
-            
-              <div class="dropdown ">
-                <a  class="d-block  text-decoration-none dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
-                  <button class=" btn btn-light ">Deporte</button>
-                </a>
-                
-                <ul class="dropdown-menu text-small" >
-                  <li ><a class="dropdown-item text-secondary" href="reservarSquash">Squash</a></li>
-                  <li ><a class="dropdown-item text-secondary" href="reservarPadel">Padel</a></li>
-                  </ul>
+          <div class="card rounded-pill mx-2 mt-4 cardSeleccionFecha">
+            <div class="card-body d-flex flex-column">
+              <h4 class="text-center">Selecciona un deporte</h4>
+              <div class="seleccionaDeporte d-flex justify-content-center">
+                    <a type="buttton" class="btn btn-outline-secondary m-3 btn-lg"  href="reservarSquash">Squash</a>
+                    <a type="buttton"  class="btn btn-outline-secondary m-3 btn-lg" href="reservarPadel">Padel</a>
+                  
+                </div>
               </div>
-            </div>
-            <div class="seleccionaDeporte d-flex flex-column align-items-center " >
-              <label>Selecciona una fecha</label>
-            <div>
-              <input class="dateForm"  data-provider="datapicker" type="date" name="calendario" id="calendarioSquash">
-            </div>
-            </div>
-            
+             
+           </div>
           </div>
-        </div>
-      </div>
     </section>
     <section class="d-flex flex-column align-items-center seccionReserva">
      
       <h3 class="text-light text-center mt-4">SQUASH</h3>
 
-      <article class="reservaCancha">
-         <div class="card" >
-          <div class="d-flex justify-content-center align-middle">
+    </article>
+    <article class="reservaCancha">
+      <div class="card" >
+       <div class="d-flex justify-content-center align-middle ">
+         
+           <img src="../img/squash1.jpg" class="img-fluid rounded imgDeporte" alt="padel">
+                  
+            <div class="card-body">
+              
+              
+            <form class="d-flex flex-column justify-content-center align-items-center form-reserva" action="reservarSquash"  method="post">                      
+                <input class="dateForm" data-provider="datapicker" type="date" name="fecha" id="fecha" required >
+               
+                            
             
-              <img src="../img/squash1.jpg" class="img-fluid rounded imgDeporte" alt="...">
-       
-            <div class="">
-              <div class="card-body">
-                <h5 class="card-title">Cancha 1</h5>
-                <ul class="d-flex justify-content-start flex-wrap m-0 p-0">
-                  <li class="hora">15:00</li>
-                  <li class="hora">15:30</li>
-                  <li class="hora">16:00</li>
-                  <li class="hora">16:30</li>
-                  <li class="hora">17:00</li>
-                  <li class="hora">17:30</li>
-                  <li class="hora">18:00</li>
-                  <li class="hora">18:30</li>
-                  <li class="hora">19:00</li>
-                  <li class="hora">19:30</li>
-                  <li class="hora">20:00</li>
-                  <li class="hora">20:30</li>
-                  <li class="hora">21:00</li>
-                  <li class="hora">21:30</li>
-                  <li class="hora">22:00</li>
-                  <li class="hora">22:30</li>
-                  <li class="hora">23:00</li>
-                  <li class="hora">23:30</li>
-               </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="reservaCancha">
-        <div class="card" >
-         <div class="d-flex justify-content-center align-middle">
-           
-             <img src="../img/squash2.jpg" class="img-fluid rounded imgDeporte" alt="...">
-      
-           <div class="">
-             <div class="card-body">
-               <h5 class="card-title">Cancha 2</h5>
-               <ul class="d-flex justify-content-start flex-wrap m-0 p-0">
-                 <li class="hora">15:00</li>
-                 <li class="hora">15:30</li>
-                 <li class="hora">16:00</li>
-                 <li class="hora">16:30</li>
-                 <li class="hora">17:00</li>
-                 <li class="hora">17:30</li>
-                 <li class="hora">18:00</li>
-                 <li class="hora">18:30</li>
-                 <li class="hora">19:00</li>
-                 <li class="hora">19:30</li>
-                 <li class="hora">20:00</li>
-                 <li class="hora">20:30</li>
-                 <li class="hora">21:00</li>
-                 <li class="hora">21:30</li>
-                 <li class="hora">22:00</li>
-                 <li class="hora">22:30</li>
-                 <li class="hora">23:00</li>
-                 <li class="hora">23:30</li>
-              </ul>
-             </div>
-           </div>
-         </div>
-       </div>
-     </article>
+               <input value="s1" name="cancha" id="cancha" selected class="d-none">
+               
+             <select class="dateForm m-3" name= "hora_inicio" id="hora_inicio" scroll="6" required> 
+               <option class="hora" type="time" value="" selected  disabled>Hora de inicio</option>
+               <option class="hora" type="time" value="900">15:00</option>
+               <option class="hora" type="time" value="930">15:30</option>
+               <option class="hora" type="time" value="960">16:00</option>
+               <option class="hora" type="time" value="990">16:30</option>
+               <option class="hora" type="time" value="1020">17:00</option>
+               <option class="hora" type="time" value="1050">17:30</option>
+               <option class="hora" type="time" value="1080">18:00</option>
+               <option class="hora" type="time" value="1110">18:30</option>
+               <option class="hora" type="time" value="1140">19:00</option>
+               <option class="hora" type="time" value="1170">19:30</option>
+               <option class="hora" type="time" value="1200">20:00</option>
+               <option class="hora" type="time" value="1230">20:30</option>
+               <option class="hora" type="time" value="1260">21:00</option>
+               <option class="hora" type="time" value="1290">21:30</option>
+               <option class="hora" type="time" value="1320">22:00</option>
+               <option class="hora" type="time" value="1350">22:30</option>
+               <option class="hora" type="time" value="1380">23:00</option>
 
-      <article class="reservaCancha mb-4">
-        <div class="card" >
-         <div class="d-flex justify-content-center align-middle">
-           
-             <img src="../img/squash3.jpg" class="img-fluid rounded imgDeporte" alt="...">
-      
-           <div class="">
-             <div class="card-body">
-               <h5 class="card-title">Cancha 3</h5>
-               <ul class="d-flex justify-content-start flex-wrap m-0 p-0">
-                 <li class="hora">15:00</li>
-                 <li class="hora">15:30</li>
-                 <li class="hora">16:00</li>
-                 <li class="hora">16:30</li>
-                 <li class="hora">17:00</li>
-                 <li class="hora">17:30</li>
-                 <li class="hora">18:00</li>
-                 <li class="hora">18:30</li>
-                 <li class="hora">19:00</li>
-                 <li class="hora">19:30</li>
-                 <li class="hora">20:00</li>
-                 <li class="hora">20:30</li>
-                 <li class="hora">21:00</li>
-                 <li class="hora">21:30</li>
-                 <li class="hora">22:00</li>
-                 <li class="hora">22:30</li>
-                 <li class="hora">23:00</li>
-                 <li class="hora">23:30</li>
-              </ul>
-             </div>
+             </select>
+             <select class="m-3 dateForm "  name= "duracion" id="duracion" required> 
+               <option selected disabled>Duración</option>
+               <option class="hora" type="time" value="60" requiered >60 min</option>
+               <option class="hora" type="time" value="90">90 min</option>
+               <option class="hora" type="time" value="120">120min</option>
+             </select>
+
+            <a href="reservaExitosa" ><button type="submit" class="btn btn-outline-secondary">Enviar</button></a>
+                          
            </div>
-         </div>
+         
        </div>
-     </article>
+     </div>
+     </form>
+    </article>
+    <article class="reservaCancha">
+      <div class="card" >
+       <div class="d-flex justify-content-center align-middle ">
+         
+           <img src="../img/squash2.jpg" class="img-fluid rounded imgDeporte" alt="padel">
+                  
+            <div class="card-body">
+              
+              
+            <form class="d-flex flex-column justify-content-center align-items-center form-reserva" action="reservarSquash"  method="post">                      
+                <input class="dateForm" data-provider="datapicker" type="date" name="fecha" id="fecha" required >
+               
+                            
+            
+               <input value="s3" name="cancha" id="cancha" selected class="d-none">
+               
+             <select class="dateForm m-3" name= "hora_inicio" id="hora_inicio" scroll="6" required> 
+               <option class="hora" type="time" value="" selected  disabled>Hora de inicio</option>
+               <option class="hora" type="time" value="900">15:00</option>
+               <option class="hora" type="time" value="930">15:30</option>
+               <option class="hora" type="time" value="960">16:00</option>
+               <option class="hora" type="time" value="990">16:30</option>
+               <option class="hora" type="time" value="1020">17:00</option>
+               <option class="hora" type="time" value="1050">17:30</option>
+               <option class="hora" type="time" value="1080">18:00</option>
+               <option class="hora" type="time" value="1110">18:30</option>
+               <option class="hora" type="time" value="1140">19:00</option>
+               <option class="hora" type="time" value="1170">19:30</option>
+               <option class="hora" type="time" value="1200">20:00</option>
+               <option class="hora" type="time" value="1230">20:30</option>
+               <option class="hora" type="time" value="1260">21:00</option>
+               <option class="hora" type="time" value="1290">21:30</option>
+               <option class="hora" type="time" value="1320">22:00</option>
+               <option class="hora" type="time" value="1350">22:30</option>
+               <option class="hora" type="time" value="1380">23:00</option>
+
+             </select>
+             <select class="m-3 dateForm "  name= "duracion" id="duracion" required> 
+               <option selected disabled>Duración</option>
+               <option class="hora" type="time" value="60" requiered >60 min</option>
+               <option class="hora" type="time" value="90">90 min</option>
+               <option class="hora" type="time" value="120">120min</option>
+             </select>
+
+            <a href="reservaExitosa" ><button type="submit" class="btn btn-outline-secondary">Enviar</button></a>
+                          
+           </div>
+         
+       </div>
+     </div>
+     </form>
+   </article>
+
+  </article>
+  <article class="reservaCancha">
+    <div class="card" >
+     <div class="d-flex justify-content-center align-middle ">
+       
+         <img src="../img/squash3.jpg" class="img-fluid rounded imgDeporte" alt="padel">
+                
+          <div class="card-body">
+            
+            
+          <form class="d-flex flex-column justify-content-center align-items-center form-reserva" action="reservarSquash"  method="post">                      
+              <input class="dateForm" data-provider="datapicker" type="date" name="fecha" id="fecha" required >
+             
+                          
+          
+             <input value="s3" name="cancha" id="cancha" selected class="d-none">
+             
+           <select class="dateForm m-3" name= "hora_inicio" id="hora_inicio" scroll="6" required> 
+             <option class="hora" type="time" value="" selected  disabled>Hora de inicio</option>
+             <option class="hora" type="time" value="900">15:00</option>
+             <option class="hora" type="time" value="930">15:30</option>
+             <option class="hora" type="time" value="960">16:00</option>
+             <option class="hora" type="time" value="990">16:30</option>
+             <option class="hora" type="time" value="1020">17:00</option>
+             <option class="hora" type="time" value="1050">17:30</option>
+             <option class="hora" type="time" value="1080">18:00</option>
+             <option class="hora" type="time" value="1110">18:30</option>
+             <option class="hora" type="time" value="1140">19:00</option>
+             <option class="hora" type="time" value="1170">19:30</option>
+             <option class="hora" type="time" value="1200">20:00</option>
+             <option class="hora" type="time" value="1230">20:30</option>
+             <option class="hora" type="time" value="1260">21:00</option>
+             <option class="hora" type="time" value="1290">21:30</option>
+             <option class="hora" type="time" value="1320">22:00</option>
+             <option class="hora" type="time" value="1350">22:30</option>
+             <option class="hora" type="time" value="1380">23:00</option>
+
+           </select>
+           <select class="m-3 dateForm "  name= "duracion" id="duracion" required> 
+             <option selected disabled>Duración</option>
+             <option class="hora" type="time" value="60" requiered >60 min</option>
+             <option class="hora" type="time" value="90">90 min</option>
+             <option class="hora" type="time" value="120">120min</option>
+           </select>
+
+          <a href="reservaExitosa" ><button type="submit" class="btn btn-outline-secondary">Enviar</button></a>
+                        
+         </div>
+       
+     </div>
+   </div>
+   </form>
+ </article>
     
     </section>
   </main>

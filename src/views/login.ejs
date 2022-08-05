@@ -22,7 +22,7 @@
             <a class="text-decoration-none" href="register"><p class="px-2 text-light">Registrarme</p></a>
           </div> 
                  
-          <form action="login" method="post" class="d-flex flex-column align-items-center justify-content-center formLogin " >
+          <form action="/auth" method="post" class="d-flex flex-column align-items-center justify-content-center formLogin " >
                
             <div class="form-floating formLogin">
               <input type="email" class="form-control"  name="email" id="email" placeholder="name@example.com" >
@@ -55,7 +55,7 @@
                  showConfirmButton: '<%= showConfirmButton %>' ,
                  timer: '<%= timer %>',
               }).then(()=>{
-                window.location= '<%= ruta  %>'
+                window.location= '/<%= ruta  %>'
               })
             </script>
           <% } %>
