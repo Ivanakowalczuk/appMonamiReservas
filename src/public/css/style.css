@@ -114,12 +114,14 @@ object-fit: cover;
 }
 
 .imgMisReservas{
-   width: 100px;
+   width: 110%;
+   
    object-fit: cover;
    
 }
 .misReservas{
-  max-width: 400px;
+
+  max-width: 200px;
 
 }
 

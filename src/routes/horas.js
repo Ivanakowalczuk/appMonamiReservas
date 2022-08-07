@@ -3,7 +3,7 @@ import { Router } from 'express';
 import connection from '../../database/db.js';
 import indexRoutes from './index.js'
 import auth from './authentication.js';
-import moment from 'moment-duration-format'
+import moment from 'moment'
 
 const router = Router()
 
@@ -49,18 +49,18 @@ router.post('/reservarPadel', (req, res, next) => {
                 
              }   
 
-             if(cancha, fecha, hora_inicio, hora_final){
-             connection.query('SELECT * FROM reserva WHERE estado=1', [cancha, fecha,hora_inicio,hora_final], async(error, results)=>{
+        //      if(cancha, fecha, hora_inicio, hora_final){
+        //      connection.query('SELECT * FROM reserva WHERE estado=1', [cancha, fecha,hora_inicio,hora_final], async(error, results)=>{
                
-               for (let i = 0; i< results.length; i++) {
-                if(!(cancha.compare(cancha, results[i].id_cancha ) && results.fecha === fecha && results.hora_inicio=== hora_inicio && results.hora_final === hora_final && estado===1 )){
-                   horas[i].remove
-                }
+        //        for (let i = 0; i< results.length; i++) {
+        //         if(!(cancha.compare(cancha, results[i].id_cancha ) && results.fecha === fecha && results.hora_inicio=== hora_inicio && results.hora_final === hora_final && estado===1 )){
+        //            horas[i].remove
+        //         }
 
-               }
+        //        }
                 
-            })
-        }
+        //     })
+        // }
          
             connection.query('INSERT INTO reserva SET ?', {fecha: fecha, id_cancha: cancha,  id_usuario: id_usuario, hora_inicio: hora_inicio, duracion:duracion, hora_final: hora_final, estado: 1}, async(error, results)=>{
               
@@ -73,7 +73,7 @@ router.post('/reservarPadel', (req, res, next) => {
                     name: req.session.name,
                     fecha: (fecha).slice(-2) + "/" + (fecha).slice(5, 7),
                     duracion: duracion,
-                    hora_inicio: Math.round(hora_inicio/60),
+                    hora_inicio: Math.floor(hora_inicio/60),
                     minutos_inicio: ('0' + (hora_inicio % 60)).slice(-2),
                    
                 });
@@ -144,7 +144,7 @@ router.post('/reservarSquash', (req, res) => {
                     name: req.session.name,
                     fecha: (fecha).slice(-2) + "/" + (fecha).slice(5, 7),
                     duracion: duracion,
-                    hora_inicio: Math.round(hora_inicio/60),
+                    hora_inicio: Math.floor(hora_inicio/60),
                     minutos_inicio: ('0' + (hora_inicio % 60)).slice(-2),
                     estado: estado
             

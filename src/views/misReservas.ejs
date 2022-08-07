@@ -17,39 +17,86 @@
               <img class="logo2" src="../img/logo-sin-fondo.png" alt="logo"  >
             </a>
        </section>
-       <article class="misReservas mb-4 mx-auto">
-        <div class="card rounded" >
+       <section class="mb-5">
+        <div class="d-flex justify-content-center">
+          <div class="dropdown ">
+            <a  class="d-block  text-decoration-none"  data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn-w-2  text-light btn border-secondary">Reservar Cancha</button>
+            </a>
+            <ul class="dropdown-menu text-small  bg-black  btn-w-2" >
+              <li ><a class="dropdown-item text-secondary" href="reservarSquash">Squash</a></li>
+              <li ><a class="dropdown-item text-secondary" href="reservarPadel">Padel</a></li>
+              </ul>
+          </div>
+        </div>
+       </section>
+       <section class="row justify-content-around mx-2">
         
-         <div class="d-flex justify-content-start rounded flex-wrap ">
-          <img src="../img/padel2.jpg" class="img-fluid rounded imgMisReservas" alt="padel">
+    
+       <script src="../../node_modules/moment/moment.js"></script>
+
+<%  results.forEach((reserva)=> { 
+  let hora_inicio= Math.floor(reserva.hora_inicio/60)
+  let minutos_inicio= ('0' + (reserva.hora_inicio % 60)).slice(-2)
+  let hora_final = Math.floor(reserva.hora_final/60)
+  let minutos_final = ('0' + (reserva.hora_final % 60)).slice(-2)
+  let cancha = reserva.id_cancha
+  let duracion = reserva.duracion
+  let fecha= (reserva.fecha.getDate()+ '/' + reserva.fecha.getMonth())
+  if(cancha === 'p1' || cancha === 'p2'){
+    cancha= 'Padel'
+       
+}else{
+   cancha = 'Squash'
+}
+
+  %>
+  
+ 
+
+       <article class="misReservas mb-4  card rounded">
               
+         <div class="d-flex justify-content-center flex-wrap rounded ">
+      
+          <% if(cancha==='Padel') { %>
+
+            <img src="../img/padel2.jpg" class="img-fluid rounded mt-2" alt="padel">
+         <% } else {%>
+          
+          <img src="../img/squash2.jpg" class="img-fluid rounded mt-2" alt="padel">
+                
+          <% } %>
+          
            <div class="">
+           
              <div class="card-body">
-               <h5 class="card-title">Squash</h5>
-               <ul class="d-flex justify-content-start flex-wrap m-0 p-0">
-                 <li class="hora">20/07/22</li>
-                 <li class="hora">15:30 hs.</li>
+              <h5 class="card-title ">
+             
+                <%= cancha %>
+                </h5>
+               <ul class="d-flex justify-content-start flex-column flex-wrap m-0 p-0">
+                
+                 <li class="hora"><span>Fecha:</span> <%=fecha%> </li>
+                 <li class="hora"><span>Desde:</span> <%=hora_inicio%>:<%=minutos_inicio%>hs</li>
+                 <li class="hora"><span>Hasta:</span> <%=hora_final%>:<%=minutos_final%>hs</li>
+                 <li class="hora"><span>Duracion:</span> <%=duracion%> min</li>
+                 
                  
               </ul>
              </div>
            </div>
-          <a class="align-self-center"  href="https://web.whatsapp.com/send?phone=5493512521739&text=Hola,%20necesito%20cancelar%20una%20reserva%20" target="_blank"> <button class="btn bg-blue  mx-1">Cancelar</button></a>
+          <a class="align-self-center mb-2"  href="https://web.whatsapp.com/send?phone=5493512521739&text=Hola,%20necesito%20cancelar%20una%20reserva%20" target="_blank"> <button class="btn bg-blue  mx-1">Cancelar</button></a>
          </div>
-       </div>
+      
      </article>
-     <div class="d-flex justify-content-center">
-      <div class="dropdown ">
-        <a  class="d-block  text-decoration-none"  data-bs-toggle="dropdown" aria-expanded="false">
-          <button class="btn-w-2  text-light btn border-secondary">Reservar Cancha</button>
-        </a>
-        <ul class="dropdown-menu text-small  bg-black  btn-w-2" >
-          <li ><a class="dropdown-item text-secondary" href="reservarSquash">Squash</a></li>
-          <li ><a class="dropdown-item text-secondary" href="reservarPadel">Padel</a></li>
-          </ul>
-      </div>
-    </div>
+   
+     <% }) %>
+    
+    </section>
+     
       </main>
       <%- include('partials/footer') %>
+   
    
       <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

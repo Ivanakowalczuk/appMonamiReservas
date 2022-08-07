@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.98.0">
-    <title>Dashboard Template · Bootstrap v5.2</title>
+    <title>SQUASH</title>
 
   
 
@@ -83,13 +83,65 @@
 
  
 
-      <h5 class="text-center m-3">Lunes 02/07/2022</h5>
+      <!-- <h5 class="text-center m-3">Lunes 02/07/2022</h5> -->
       
       <div class="table d-flex flex-wrap justify-content-around">
        
+        <div class= "w-50 border border-secondary p-2 ">
+        
+       
+          <table class="table table-responsive table-sm ">
+            <thead>
+              <tr> 
+                <th>
+                 <h5>Squash</h5>
+                </th>
+              </tr>
+              <tr class="text-center">
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora Inicio</th>
+                <th scope="col">Hora Final</th>
+                <th scope="col">Duración</th>
+                <th scope="col">Cliente</th>
+               
+                
+              </tr>
+            </thead>
+            
+                <tbody>
+                  <% results.forEach((reserva)=> { 
+                    let hora_inicio= Math.floor(reserva.hora_inicio/60)
+                    let minutos_inicio= ('0' + (reserva.hora_inicio % 60)).slice(-2)
+                    let hora_final = Math.floor(reserva.hora_final/60)
+                    let minutos_final = ('0' + (reserva.hora_final % 60)).slice(-2)
+                    let cancha = reserva.id_cancha
+                    let duracion = reserva.duracion
+                    let fecha= (reserva.fecha.getDate()+ '/' + reserva.fecha.getMonth())
+                    let usuario= reserva.nombre + ' ' + reserva.apellido
+                    if(cancha === 's1' || cancha === 's2' || cancha ==='s3'){
+                    
+                       
+                  %>
+                    <tr class="text-center">
+        
+                      <td><%=fecha%></td>
+                      <td><%=hora_inicio%>:<%=minutos_inicio%></td>
+                      <td><%= hora_final%>:<%= minutos_final%></td>
+                      <td><%= duracion%> min</td>
+                      <td> <%= usuario%> </td>
+                     
+                    
+                
+                   <% }  %>
+                    <% }) %>
+                </tbody>
+               
+              </table>
+       
 
-          <%- include('partials/dashboardSquash') %>
-    
+            
+      </div>
+
             
 
 

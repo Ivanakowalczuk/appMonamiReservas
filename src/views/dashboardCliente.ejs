@@ -64,21 +64,10 @@
 
   <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <h1>Reservas</h1>
+      <h1>Clientes</h1>
       
-      <div class="btn-toolbar mb-2 mb-md-0 ">
-        <div class="btn-group me-2">
-          <button type="button" class="btn btn-sm btn-outline-secondary">HOY</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary">MAÑANA</button>
-        </div>
-          <input class="dateForm btn btn-outline-secondary" data-povider="datapicker" type="date" name="calendario"></input>
-                      
-      </div>
+    
     </div>
-
-
-
-    <h5 class="text-center m-3">Clientes</h5>
     
     <div class="table d-flex flex-wrap justify-content-around ">
      
@@ -93,32 +82,54 @@
                 <th scope="col">DNI</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col">E-mail</th>
-                <th scope="col">Dirección</th>       
+                <th scope="col">Dirección</th>  
+                <th scope="col">Rol</th>        
               </tr>
             </thead>
             <tbody>
+              <% results.forEach((usuario)=> { 
+                
+                let nombre= usuario.nombre
+                let apellido= usuario.apellido
+                let telefono= usuario.telefono
+                let DNI= usuario.DNI
+                let direccion= usuario.direccion
+                let email= usuario.email.toLowerCase()
+                let rol = usuario.id_rol
+                if(rol === 2){
+                  rol= 'Cliente'
+                     
+              }else{
+                 rol = 'Administrador'
+              }
+              
+               %> 
+                
            
-                <tr>
-                  <td>Nombre</td>
+             <tr>
+                  <td><h6><%=nombre%></h6></td>
                   <td>
-                    <h6>Apellido</h6>
+                    <h6><%=apellido%></h6>
                   </td>
                   <td>
-                    <h6>DNI</h6>
+                    <h6><%=DNI%></h6>
                   </td>
                   <td>
-                    <h6>Teléfono</h6>
+                    <h6><%=telefono%></h6>
                   </td>
                   <td>
-                    <h6>E-mail</h6>
+                    <h6><%=email%></h6>
                   </td>
                   <td>
-                    <h6>Dirección</h6>
+                    <h6><%=direccion%></h6>
+                  </td>
+                  <td>
+                    <h6><%=rol%></h6>
                   </td>
                 </tr>
         
   
-          
+                <%}) %>
     </tbody>
 </table>
 
