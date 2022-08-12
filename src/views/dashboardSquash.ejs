@@ -1,12 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.98.0">
-    <title>SQUASH</title>
+
+    <title>Admin Squash</title>
 
   
 
@@ -70,15 +69,15 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1>Reservas</h1>
-        
-        <div class="btn-toolbar mb-2 mb-md-0 ">
+        <a class="btn btn-success" href="crearReserva">Registrar Reserva</a> 
+        <!-- <div class="btn-toolbar mb-2 mb-md-0 ">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">HOY</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">MAÑANA</button>
           </div>
             <input class="dateForm btn btn-outline-secondary" data-povider="datapicker" type="date" name="calendario"></input>
                         
-        </div>
+        </div> -->
       </div>
 
  
@@ -87,7 +86,7 @@
       
       <div class="table d-flex flex-wrap justify-content-around">
        
-        <div class= "w-50 border border-secondary p-2 ">
+        <div class= "w-60 border border-secondary p-2 ">
         
        
           <table class="table table-responsive table-sm ">
@@ -103,8 +102,8 @@
                 <th scope="col">Hora Final</th>
                 <th scope="col">Duración</th>
                 <th scope="col">Cliente</th>
-               
-                
+                <th scope="col">Modificar</th>
+                <th scope="col">Eliminar</th>
               </tr>
             </thead>
             
@@ -114,10 +113,11 @@
                     let minutos_inicio= ('0' + (reserva.hora_inicio % 60)).slice(-2)
                     let hora_final = Math.floor(reserva.hora_final/60)
                     let minutos_final = ('0' + (reserva.hora_final % 60)).slice(-2)
-                    let cancha = reserva.id_cancha
+                   let cancha = reserva.id_cancha
                     let duracion = reserva.duracion
-                    let fecha= (reserva.fecha.getDate()+ '/' + reserva.fecha.getMonth())
+                    let fecha= (reserva.fecha.getDate()+ '/' + (reserva.fecha.getMonth()+1))
                     let usuario= reserva.nombre + ' ' + reserva.apellido
+                    let id= reserva.id
                     if(cancha === 's1' || cancha === 's2' || cancha ==='s3'){
                     
                        
@@ -129,8 +129,14 @@
                       <td><%= hora_final%>:<%= minutos_final%></td>
                       <td><%= duracion%> min</td>
                       <td> <%= usuario%> </td>
-                     
-                    
+                      <td>
+                        <a href="/editarReserva/<%=id%>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                      </td>
+                      <td>
+                        <a  href="/delete/<%=id%>" class="btn btn-danger"><i class="bi bi-x-lg"></i></a>
+                      </td>
+                      <td class="d-none"> <%= id%> </td>
+                      <td class="d-none"> <%= reserva.id_cancha%> </td>
                 
                    <% }  %>
                     <% }) %>
@@ -151,9 +157,9 @@
 </div>
 
          
-<div class="footerDashboard">   
-  <%- include('partials/footer') %>
-  </div> 
+
+  <%- include ('partials/footerDashboard')%>
+
 
  <!-- JavaScript Bundle with Popper -->
 

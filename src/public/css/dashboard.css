@@ -1,8 +1,23 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
 body {
   font-size: .875rem;
   
 }
 
+.dateForm{
+    border: none;
+    
+}
+
+
+.imgDeporte{
+  width: 15vw;
+  min-width: 130px;
+  margin:4px;
+  object-fit: cover;
+  
+  }
 .feather {
   width: 16px;
   height: 16px;
@@ -12,9 +27,14 @@ body {
  * Sidebar
  */
 
- .w-40{
-  width: 40%;
+ .w-49{
+  width: 49%;
  }
+
+ .w-60{
+  width: 60%;
+ }
+
  .logo{
   
     width: 100px;
@@ -42,16 +62,20 @@ body {
 }
 .footerDashboard{
   position: fixed;
-  
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 200;
+  background-color: black;
+ 
 
 
 }  
 
-
+.scroll{
+  
+  scroll-behavior: auto;
+}
 
 
 

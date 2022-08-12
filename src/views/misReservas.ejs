@@ -33,7 +33,7 @@
        <section class="row justify-content-around mx-2">
         
     
-       <script src="../../node_modules/moment/moment.js"></script>
+      
 
 <%  results.forEach((reserva)=> { 
   let hora_inicio= Math.floor(reserva.hora_inicio/60)
@@ -42,7 +42,7 @@
   let minutos_final = ('0' + (reserva.hora_final % 60)).slice(-2)
   let cancha = reserva.id_cancha
   let duracion = reserva.duracion
-  let fecha= (reserva.fecha.getDate()+ '/' + reserva.fecha.getMonth())
+  let fecha= (reserva.fecha.getDate()+ '/' + (reserva.fecha.getMonth()+1))
   if(cancha === 'p1' || cancha === 'p2'){
     cancha= 'Padel'
        

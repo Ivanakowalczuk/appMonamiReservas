@@ -166,4 +166,41 @@ router.post('/reservarSquash', (req, res) => {
 })
 
 
+router.post('/actualizarReserva', (req, res) => {
+    if(req.session.loggedin){
+             const id_usuario = req.session.id_usuario
+            const cancha = req.body.cancha    
+            const fecha = req.body.fecha
+            const  hora_inicio = parseInt(req.body.hora_inicio)
+            const duracion = parseInt(req.body.duracion)
+            const hora_final = hora_inicio + duracion
+            const id = req.body.id
+            let  estado = 1
+            connection.query('UPDATE reserva SET ? WHERE id = ?', [{ fecha: fecha, id_cancha: cancha,  id_usuario: id_usuario, hora_inicio: hora_inicio, duracion:duracion, hora_final: hora_final, estado: estado}, id], async(error, results)=>{        
+            if(error){
+                console.log(error)
+            }else{
+                
+                res.redirect('dashboard')
+             
+            }
+             })
+               
+          
+          
+     
+       
+    }else{
+        res.render('login', {
+            login: false,
+            name:  'Mis Reservas'
+        })
+    }
+})
+
+
+
+
+
+
 export default router

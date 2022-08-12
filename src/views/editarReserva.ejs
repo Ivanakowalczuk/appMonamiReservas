@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <title>Editar Reserva</title>
+
+  
+
+    <%- include('partials/headDashboard') %>
+
+
+    
+  
+  </head>
+  <body>
+
+    <%- include ('partials/headerDashboard')%>
+
+<div class="container-fluid mb-5">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../dashboard">
+              <span data-feather="home" class="align-text-bottom"></span>
+             Reservas
+            </a>
+          </li>
+          
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../dashboardSquash">
+              <span  class="align-text-bottom"></span>
+              Squash 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../dashboardPadel">
+              <span  class="align-text-bottom"></span>
+              Padel
+            </a>
+          </li>  
+          <li class="nav-item">
+            <a class="nav-link" href="../dashboardCliente">
+              <span data-feather="bar-chart-2" class="align-text-bottom"></span>
+            Clientes
+            </a>
+          </li>
+         
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <section class="d-flex flex-column align-items-center justify-content-center my-4  ">
+           <h1>Editar reserva</h1>
+           <article class="reservaCancha">
+            <div class="card" >
+             <div class="d-flex justify-content-center align-middle ">
+               
+                 <img src="../img/padel1.jpg" class="img-fluid rounded imgDeporte" alt="padel">
+                      
+                  <div class="card-body">
+                    
+                <% if(reserva){%>    
+                  <form class="d-flex flex-column justify-content-center align-items-center form-reserva" action="/actualizarReserva"  method="post">                      
+                      <input class="dateForm" data-provider="datapicker" type="date" name="fecha" id="fecha" value="<%= reserva.fecha%>" required >
+                     
+                   <input id="id" name="id" value="<%=reserva.id%>" class="d-none">               
+                  <select name="cancha" id="cancha" class="my-2 dateForm" >
+                    <option desable>Elige una cancha</option>
+                    <option <%= reserva.id_cancha == "p1" ? "selected" : '' %> value="p1" > Padel - Cancha 1</option>
+                    <option <%= reserva.id_cancha == "p2" ? "selected" : '' %> value="p2"  > Padel - Cancha 2</option>
+                    <option <%= reserva.id_cancha == "s1" ? "selected" : '' %> value="s1"  > Squash - Cancha 1</option>
+                    <option <%= reserva.id_cancha == "s2" ? "selected" : '' %> value="s2"   > Squash - Cancha 2</option>
+                    <option <%= reserva.id_cancha == "s3" ? "selected" : '' %> value="s3"  > Squash - Cancha 3</option>
+                  </select>
+                     
+                     
+                   <select class="dateForm m-3 scroll"  name= "hora_inicio" id="hora_inicio" required> 
+                   
+                    <option class="hora " type="time" value="" selected  disabled>Hora de inicio</option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 540 ? "selected" : '' %> value="540"><%=horas[0]%></option>
+                     <option class="hora" type="time" <%= reserva.hora_inicio === 570 ? "selected" : '' %> value="570"><%=horas[1]%></option>
+                     <option class="hora" type="time" <%= reserva.hora_inicio === 600 ? "selected" : '' %> value="600"><%=horas[2]%></option>
+                     <option class="hora" type="time" <%= reserva.hora_inicio === 630 ? "selected" : '' %> value="630"><%=horas[3]%></option>
+                     <option class="hora" type="time" <%= reserva.hora_inicio === 660 ? "selected" : '' %> value="660"><%=horas[4]%></option>
+                     <option class="hora" type="time"<%= reserva.hora_inicio === 690 ? "selected" : '' %> value="690"><%=horas[5]%></option>
+                     <option class="hora" type="time" <%= reserva.hora_inicio === 720 ? "selected" : '' %> value="720"><%=horas[6]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 750 ? "selected" : '' %> value="750"><%=horas[7]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  780 ? "selected" : '' %> value="780"><%=horas[8]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 810 ? "selected" : '' %> value="810"><%=horas[9]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  840 ? "selected" : '' %> value="840"><%=horas[10]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 870  ? "selected" : '' %> value="870"><%=horas[11]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 900 ? "selected" : '' %> value="900"><%=horas[12]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  930 ? "selected" : '' %> value="930"><%=horas[13]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 960 ? "selected" : '' %>  value="960"><%=horas[14]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  990 ? "selected" : '' %> value="990"><%=horas[15]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  1020 ? "selected" : '' %> value="1020"><%=horas[16]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 1050 ? "selected" : '' %> value="1050"><%=horas[17]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  1080 ? "selected" : '' %> value="1080"><%=horas[18]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 1110 ? "selected" : '' %>  value="1110"><%=horas[19]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 1140 ? "selected" : '' %>  value="1140"><%=horas[20]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  1170  ? "selected" : '' %> value="1170"><%=horas[21]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 1200 ? "selected" : '' %> value="1200"><%=horas[22]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 1230 ? "selected" : '' %> value="1230"><%=horas[23]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  1260 ? "selected" : '' %> value="1260"><%=horas[24]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio === 1290 ? "selected" : '' %> value="1290"><%=horas[25]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  1320 ? "selected" : '' %> value="1320"><%=horas[26]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  1350 ? "selected" : '' %> value="1350"><%=horas[27]%></option>
+                     <option class="hora" type="time"  <%= reserva.hora_inicio ===  1380 ? "selected" : '' %> value="1380"><%=horas[28]%></option>
+                     
+                   </select>
+                   <select class="m-3 dateForm "  name= "duracion" id="duracion" required> 
+                     <option selected disabled>Duración</option>
+                     <option class="hora" type="time"  <%= reserva.duracion === 60 ? "selected" : '' %> value="60" requiered >60 min</option>
+                     <option class="hora" type="time"  <%= reserva.duracion === 90 ? "selected" : '' %> value="90">90 min</option>
+                     <option class="hora" type="time"  <%= reserva.duracion ===  120 ? "selected" : '' %> value="120">120min</option>
+                   </select>
+
+                  <a><button type="submit" class="btn btn-outline-secondary">Enviar</button></a>
+                                
+                 </div>
+                 <img src="../img/squash1.jpg" class="img-fluid rounded imgDeporte" alt="padel"> 
+             </div>
+           </div>
+           </form>
+           <% }%>
+         </article>     
+          
+               
+          
+          
+    
+           </section>
+    </main>
+  </div>
+</div>
+
+
+  <%- include ('partials/footerDashboard')%>
+ 
+
+ <!-- JavaScript Bundle with Popper -->
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+  </body>
+</html>

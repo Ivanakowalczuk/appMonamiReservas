@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,7 +65,7 @@
   <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1>Clientes</h1>
-      
+      <a class="btn btn-success" href="nuevoCliente">Nuevo Cliente</a> 
     
     </div>
     
@@ -84,6 +84,8 @@
                 <th scope="col">E-mail</th>
                 <th scope="col">Dirección</th>  
                 <th scope="col">Rol</th>        
+                <th scope="col">Modificar</th>  
+                <th scope="col">Eliminar</th>  
               </tr>
             </thead>
             <tbody>
@@ -96,6 +98,7 @@
                 let direccion= usuario.direccion
                 let email= usuario.email.toLowerCase()
                 let rol = usuario.id_rol
+                let id = usuario.id
                 if(rol === 2){
                   rol= 'Cliente'
                      
@@ -126,6 +129,13 @@
                   <td>
                     <h6><%=rol%></h6>
                   </td>
+                  <td>
+                    <a href="/editarCliente/<%=id%>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                  </td>
+                  <td>
+                    <a  href="/deleteCliente/<%=id%>" class="btn btn-danger"><i class="bi bi-x-lg"></i></a>
+                  </td>
+                  <td class="d-none"> <%= id%> </td>
                 </tr>
         
   
@@ -142,9 +152,7 @@
 </div>
 
        
-<div class="footerDashboard">   
-<%- include('partials/footer') %>
-</div> 
+<%- include ('partials/footerDashboard')%>
 
 <!-- JavaScript Bundle with Popper -->
 

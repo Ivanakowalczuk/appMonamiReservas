@@ -33,22 +33,33 @@ if(error){
     }
     console.log(error)
 }else{
-    res.render('register', {
-        alert: true,
-        alertTitle:"Registro de usuario",
-        alertMessage:"Registro exitoso",
-        alertIcon: 'succes',
-        showConfirmButton: false,
-        timer: 3500,
-        ruta: '/'
-
+    if(req.session.id_rol === 2){
+        res.render('register', {
+            alert: true,
+            alertTitle:"Registro de usuario",
+            alertMessage:"Registro exitoso",
+            alertIcon: 'succes',
+            showConfirmButton: false,
+            timer: 3500,
+            ruta: 'index'
+    
+        })
+    }else{
+        res.render('nuevoCliente', {
+            alert: true,
+            alertTitle:"Registro de usuario",
+            alertMessage:"Registro exitoso",
+            alertIcon: 'succes',
+            showConfirmButton: false,
+            timer: 2500,
+            ruta: 'dashboardCliente'
     })
+   
    }
 
-    })
-
+}
 })
-
+})
 router.post('/auth', async (req, res)=>{
 
     const email = req.body.email;
@@ -145,4 +156,35 @@ router.get('/', (req, res)=>{
         res.redirect('/')
     })
   })
+
+
+router.post('/actualizarCliente', async(req, res)=>{
+    if(req.session.loggedin){
+        const nombre = req.body.nombre;
+        const apellido = req.body.apellido;
+        const dni = req.body.dni;
+        const tel = req.body.tel;
+        const email = req.body.email;
+        const pass = req.body.pass;
+        const id_rol = req.body.id_rol;
+        const id = req.body.id
+        let passwordHash = await bcryptjs.hash(pass, 8);
+        connection.query('UPDATE usuario SET ? WHERE id = ?', [{nombre: nombre, apellido: apellido, DNI: dni, telefono: tel, email: email, contraseña: passwordHash, id_rol: id_rol}, id], async(error, results)=>{
+    if(error){
+       
+          console.log(error)
+    
+    }else{
+       
+            res.redirect('dashboardCliente')
+    }
+    })
+ }else{
+        res.render('login', {
+            login: false,
+            name:  'Vuelva a iniciar sesión'
+        })
+    }
+})
+   
   export default router 
