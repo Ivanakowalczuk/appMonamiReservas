@@ -49,8 +49,8 @@
                      
                      
                    <form class="d-flex flex-column justify-content-center align-items-center form-reserva" action="reservarPadel"  method="post">                      
-                       <input class="dateForm" data-provider="datapicker" type="date" name="fecha" id="fecha" required >
-                      
+                       <input class="dateForm" data-provider="datapicker" type="date"  name="fecha" id="fecha" required >
+                       
                                    
                    
                       <input value="p1" name="cancha" id="cancha" selected class="d-none">
@@ -108,25 +108,24 @@
                      <input value="p2" name="cancha" id="cancha" selected class="d-none">
                      
                    <select class="dateForm m-3" name= "hora_inicio" id="hora_inicio" scroll="6" required> 
-                     <option class="hora" type="time" value="" selected  disabled>Hora de inicio</option>
-                     <option class="hora" type="time" value="900">15:00</option>
-                     <option class="hora" type="time" value="930">15:30</option>
-                     <option class="hora" type="time" value="960">16:00</option>
-                     <option class="hora" type="time" value="990">16:30</option>
-                     <option class="hora" type="time" value="1020">17:00</option>
-                     <option class="hora" type="time" value="1050">17:30</option>
-                     <option class="hora" type="time" value="1080">18:00</option>
-                     <option class="hora" type="time" value="1110">18:30</option>
-                     <option class="hora" type="time" value="1140">19:00</option>
-                     <option class="hora" type="time" value="1170">19:30</option>
-                     <option class="hora" type="time" value="1200">20:00</option>
-                     <option class="hora" type="time" value="1230">20:30</option>
-                     <option class="hora" type="time" value="1260">21:00</option>
-                     <option class="hora" type="time" value="1290">21:30</option>
-                     <option class="hora" type="time" value="1320">22:00</option>
-                     <option class="hora" type="time" value="1350">22:30</option>
-                     <option class="hora" type="time" value="1380">23:00</option>
-
+                    <option class="hora" type="time" value="" selected  disabled>Hora de inicio</option>
+                    <option class="hora" type="time" value="900"><%=horas[0]%></option>
+                    <option class="hora" type="time" value="930"><%=horas[1]%></option>
+                    <option class="hora" type="time" value="960"><%=horas[2]%></option>
+                    <option class="hora" type="time" value="990"><%=horas[3]%></option>
+                    <option class="hora" type="time" value="1020"><%=horas[4]%></option>
+                    <option class="hora" type="time" value="1050"><%=horas[5]%></option>
+                    <option class="hora" type="time" value="1080"><%=horas[6]%></option>
+                    <option class="hora" type="time" value="1110"><%=horas[7]%></option>
+                    <option class="hora" type="time" value="1140"><%=horas[8]%></option>
+                    <option class="hora" type="time" value="1170"><%=horas[9]%></option>
+                    <option class="hora" type="time" value="1200"><%=horas[10]%></option>
+                    <option class="hora" type="time" value="1230"><%=horas[11]%></option>
+                    <option class="hora" type="time" value="1260"><%=horas[12]%></option>
+                    <option class="hora" type="time" value="1290"><%=horas[13]%></option>
+                    <option class="hora" type="time" value="1320"><%=horas[14]%></option>
+                    <option class="hora" type="time" value="1350"><%=horas[15]%></option>
+                    <option class="hora" type="time" value="1380"><%=horas[16]%></option>
                    </select>
                    <select class="m-3 dateForm "  name= "duracion" id="duracion" required> 
                      <option selected disabled>Duración</option>

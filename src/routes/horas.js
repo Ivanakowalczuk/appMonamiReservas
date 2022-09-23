@@ -3,13 +3,29 @@ import { Router } from 'express';
 import connection from '../../database/db.js';
 import indexRoutes from './index.js'
 import auth from './authentication.js';
-import moment from 'moment'
+// import moment, { now } from 'moment'
 
 const router = Router()
 
 router.get('/reservarPadel', (req, res) => {
    let horas= ['15:00', '15:30','16:00', '16:30', '17:00', '17:30', '18:00','18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'];
-    if(req.session.loggedin){
+ //el array de fechas está bien creado, ahora hay que renderizar estas fechas en el calendario del front
+   const fechaActual = new Date()
+   let arrayFechas = []
+   let fechas = (fechaActual) => {
+  
+      for (let i=0; i < 15; i++){
+      let fechaCalendario = fechaActual++
+        arrayFechas.push(fechaCalendario)
+        
+    }
+  
+   } 
+fechas(fechaActual)
+console.log(arrayFechas)
+
+
+   if(req.session.loggedin){
      
         res.render('reservarPadel', {
           login: true, 
@@ -106,9 +122,25 @@ router.post('/reservarPadel', (req, res, next) => {
     }
 })
 
+
 router.post('/reservarSquash', (req, res) => {
     if(req.session.loggedin){
-             const id_usuario = req.session.id_usuario
+        const fechaDiponible= function crearfecha(){
+            fecha: newDate()
+            
+    for(let i=0; i<15; i++){
+        [
+            {
+                fecha:  now(),
+                horas: ['15:00', '15:30','16:00', '16:30', '17:00', '17:30', '18:00','18:30', 
+                '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'
+                ]
+            }
+        ]
+       }
+           
+        } 
+        const id_usuario = req.session.id_usuario
             const cancha = req.body.cancha    
             const fecha = req.body.fecha
             const  hora_inicio = parseInt(req.body.hora_inicio)
