@@ -33,8 +33,10 @@ app.use(router)
 app.use(router2)
 
 
-app.listen(3000)
-console.log('Server is listening', 3000)
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Server is listening port')
+});
+
 
 
 

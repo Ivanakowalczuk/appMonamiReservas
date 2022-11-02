@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import connection from '../../database/db.js'
 import moment from 'moment'
-import { createPool } from 'mysql'
+
 
 
 const router = Router()
