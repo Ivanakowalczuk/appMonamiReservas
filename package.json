@@ -1,12 +1,11 @@
 {
   "name": "appmonamireservas",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/app.js"
   },
   "author": "Ivana Kowalczuk",
   "license": "ISC",
@@ -14,15 +13,25 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "express-session": "^1.17.3",
     "jquery-datepicker": "^1.12.3",
     "moment": "^2.29.4",
     "moment-duration-format": "^2.3.2",
     "morgan": "^1.10.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "mysql2": "^3.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ivanakowalczuk/appMonamiReservas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ivanakowalczuk/appMonamiReservas/issues"
+  },
+  "homepage": "https://github.com/Ivanakowalczuk/appMonamiReservas#readme",
+  "description": ""
 }
