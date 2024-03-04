@@ -12,17 +12,23 @@ router.get('/reservarPadel', (req, res) => {
  //el array de fechas está bien creado, ahora hay que renderizar estas fechas en el calendario del front
    const fechaActual = new Date()
    let arrayFechas = []
-   let fechas = (fechaActual) => {
+   let fechas = (fechaInicial) => {
   
       for (let i=0; i < 15; i++){
-      let fechaCalendario = fechaActual++
-        arrayFechas.push(fechaCalendario)
+        // Creamos una nueva instancia de fecha para cada iteración
+        let fechaCalendario = new Date(fechaInicial);
+        // Añadimos un día a la fecha actual
+        fechaCalendario.setDate(fechaCalendario.getDate() + i);
+        arrayFechas.push(fechaCalendario);
         
     }
   
    } 
 fechas(fechaActual)
-console.log(arrayFechas)
+const dates = arrayFechas.map(arrayFechas => new Date(arrayFechas));
+
+console.log("dates", dates);
+console.log("fechas", arrayFechas)
 
 
    if(req.session.loggedin){
@@ -102,10 +108,7 @@ router.post('/reservarPadel', (req, res, next) => {
                         hora_final: hora_final,
                         duracion: duracion, 
                         estado: estado
-                     } ,  
-                 
-
-                  
+                     } ,      
 
             })
             }
@@ -125,21 +128,21 @@ router.post('/reservarPadel', (req, res, next) => {
 
 router.post('/reservarSquash', (req, res) => {
     if(req.session.loggedin){
-        const fechaDiponible= function crearfecha(){
-            fecha: newDate()
+    //     const fechaDiponible= function crearfecha(){
+    //         fecha: newDate()
             
-    for(let i=0; i<15; i++){
-        [
-            {
-                fecha:  now(),
-                horas: ['15:00', '15:30','16:00', '16:30', '17:00', '17:30', '18:00','18:30', 
-                '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'
-                ]
-            }
-        ]
-       }
+    // for(let i=0; i<15; i++){
+    //     [
+    //         {
+    //             fecha:  now(),
+    //             horas: ['15:00', '15:30','16:00', '16:30', '17:00', '17:30', '18:00','18:30', 
+    //             '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'
+    //             ]
+    //         }
+    //     ]
+    //    }
            
-        } 
+    //     } 
         const id_usuario = req.session.id_usuario
             const cancha = req.body.cancha    
             const fecha = req.body.fecha
