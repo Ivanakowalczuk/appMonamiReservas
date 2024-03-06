@@ -10,25 +10,22 @@ const router = Router()
 router.get('/reservarPadel', (req, res) => {
    let horas= ['15:00', '15:30','16:00', '16:30', '17:00', '17:30', '18:00','18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'];
  //el array de fechas está bien creado, ahora hay que renderizar estas fechas en el calendario del front
-   const fechaActual = new Date()
-   let arrayFechas = []
-   let fechas = (fechaInicial) => {
-  
-      for (let i=0; i < 15; i++){
-        // Creamos una nueva instancia de fecha para cada iteración
-        let fechaCalendario = new Date(fechaInicial);
-        // Añadimos un día a la fecha actual
-        fechaCalendario.setDate(fechaCalendario.getDate() + i);
-        arrayFechas.push(fechaCalendario);
-        
-    }
-  
-   } 
-fechas(fechaActual)
-const dates = arrayFechas.map(arrayFechas => new Date(arrayFechas));
+ 
 
-console.log("dates", dates);
-console.log("fechas", arrayFechas)
+    // connection.query('SELECT * FROM reserva WHERE estado=1', [cancha, fecha,hora_inicio,hora_final], async(error, results)=>{
+           
+    // for (let i = 0; i< results.length; i++) {
+    // if(!(cancha.compare(cancha, results[i].id_cancha ) && results.fecha === fecha && results.hora_inicio=== hora_inicio && results.hora_final === hora_final && estado===1 )){
+    // horas[i].remove
+    //  }
+
+    // }
+            
+    //    })
+    
+     
+
+
 
 
    if(req.session.loggedin){

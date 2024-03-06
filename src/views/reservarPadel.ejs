@@ -7,7 +7,7 @@
     <title>Reservar Padel</title>
     <%- include('partials/head') %>
    
-
+   
   </head>
   <body class="bg-black">
     <%- include('partials/profile') %>
@@ -49,33 +49,27 @@
                      
                      
                    <form class="d-flex flex-column justify-content-center align-items-center form-reserva" action="reservarPadel"  method="post">                      
-                       <input class="dateForm" data-provider="datapicker" type="date"  name="fecha" id="fecha" required >
-                       
+                    <input class="dateForm" data-provider="datepicker" type="date" name="fecha" id="fecha" required>
+             
+
                                    
                    
                       <input value="p1" name="cancha" id="cancha" selected class="d-none">
+
+                      <select class="dateForm m-3" name="hora_inicio" id="hora_inicio" required> 
+                        <option class="hora" type="time" value="" selected disabled>Hora de inicio</option>
+                        <% 
+                        let hora = 15 * 60; // Inicializamos la hora en 15:00 en minutos (15 horas * 60 minutos)
+                        for (var i = 0; i < 18; i++) { // Generamos 18 opciones
+                          %>
+                          <option class="hora" type="time" value="<%= hora %>"><%= horas[i] %></option>
+                          <% 
+                          hora += 30; // Incrementamos en 30 minutos para la próxima hora
+                        }
+                        %>
+                      </select>
                       
-                    <select class="dateForm m-3" name= "hora_inicio" id="hora_inicio" required> 
-                      <option class="hora" type="time" value="" selected  disabled>Hora de inicio</option>
-                      <option class="hora" type="time" value="900"><%=horas[0]%></option>
-                      <option class="hora" type="time" value="930"><%=horas[1]%></option>
-                      <option class="hora" type="time" value="960"><%=horas[2]%></option>
-                      <option class="hora" type="time" value="990"><%=horas[3]%></option>
-                      <option class="hora" type="time" value="1020"><%=horas[4]%></option>
-                      <option class="hora" type="time" value="1050"><%=horas[5]%></option>
-                      <option class="hora" type="time" value="1080"><%=horas[6]%></option>
-                      <option class="hora" type="time" value="1110"><%=horas[7]%></option>
-                      <option class="hora" type="time" value="1140"><%=horas[8]%></option>
-                      <option class="hora" type="time" value="1170"><%=horas[9]%></option>
-                      <option class="hora" type="time" value="1200"><%=horas[10]%></option>
-                      <option class="hora" type="time" value="1230"><%=horas[11]%></option>
-                      <option class="hora" type="time" value="1260"><%=horas[12]%></option>
-                      <option class="hora" type="time" value="1290"><%=horas[13]%></option>
-                      <option class="hora" type="time" value="1320"><%=horas[14]%></option>
-                      <option class="hora" type="time" value="1350"><%=horas[15]%></option>
-                      <option class="hora" type="time" value="1380"><%=horas[16]%></option>
-                      
-                    </select>
+
                     <select class="m-3 dateForm "  name= "duracion" id="duracion" required> 
                       <option selected disabled>Duración</option>
                       <option class="hora" type="time" value="60" requiered >60 min</option>
@@ -103,30 +97,22 @@
                   <form class="d-flex flex-column justify-content-center align-items-center form-reserva" action="reservarPadel"  method="post">                      
                       <input class="dateForm" data-provider="datapicker" type="date" name="fecha" id="fecha" required >
                      
-                                  
+                      <%  %>           
                   
                      <input value="p2" name="cancha" id="cancha" selected class="d-none">
-                     
-                   <select class="dateForm m-3" name= "hora_inicio" id="hora_inicio" scroll="6" required> 
-                    <option class="hora" type="time" value="" selected  disabled>Hora de inicio</option>
-                    <option class="hora" type="time" value="900"><%=horas[0]%></option>
-                    <option class="hora" type="time" value="930"><%=horas[1]%></option>
-                    <option class="hora" type="time" value="960"><%=horas[2]%></option>
-                    <option class="hora" type="time" value="990"><%=horas[3]%></option>
-                    <option class="hora" type="time" value="1020"><%=horas[4]%></option>
-                    <option class="hora" type="time" value="1050"><%=horas[5]%></option>
-                    <option class="hora" type="time" value="1080"><%=horas[6]%></option>
-                    <option class="hora" type="time" value="1110"><%=horas[7]%></option>
-                    <option class="hora" type="time" value="1140"><%=horas[8]%></option>
-                    <option class="hora" type="time" value="1170"><%=horas[9]%></option>
-                    <option class="hora" type="time" value="1200"><%=horas[10]%></option>
-                    <option class="hora" type="time" value="1230"><%=horas[11]%></option>
-                    <option class="hora" type="time" value="1260"><%=horas[12]%></option>
-                    <option class="hora" type="time" value="1290"><%=horas[13]%></option>
-                    <option class="hora" type="time" value="1320"><%=horas[14]%></option>
-                    <option class="hora" type="time" value="1350"><%=horas[15]%></option>
-                    <option class="hora" type="time" value="1380"><%=horas[16]%></option>
-                   </select>
+                     <select class="dateForm m-3" name="hora_inicio" id="hora_inicio" required> 
+                      <option class="hora" type="time" value="" selected disabled>Hora de inicio</option>
+                      <% 
+                     hora = 15 * 60; // Inicializamos la hora en 15:00 en minutos (15 horas * 60 minutos)
+                      for (var i = 0; i < 18; i++) { // Generamos 18 opciones
+                        %>
+                        <option class="hora" type="time" value="<%= hora %>"><%= horas[i] %></option>
+                        <% 
+                        hora += 30; // Incrementamos en 30 minutos para la próxima hora
+                      }
+                      %>
+                    </select>
+                                    
                    <select class="m-3 dateForm "  name= "duracion" id="duracion" required> 
                      <option selected disabled>Duración</option>
                      <option class="hora" type="time" value="60" requiered >60 min</option>
@@ -143,6 +129,7 @@
            </form>
          </article>
         </section>
+        
       </main>
       <%- include('partials/footer') %>
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -161,9 +148,33 @@
             </script>
           <% } %>
  
-        
-         
+      
+     
+
+           <script>
+            // Obtener la fecha de hoy
+    const hoy = new Date();
+    // Establecer la fecha mínima como hoy
+    const fechaMinima = hoy.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+
+    // Crear una nueva fecha aumentada en 15 días
+    let fechaMaxima = new Date();
+    fechaMaxima.setDate(hoy.getDate() + 15);
+
+    // Establecer la fecha máxima como hoy + 15 días
+    fechaMaxima = fechaMaxima.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+
+    // Seleccionar los inputs de fecha por su nombre
+    const inputsFecha = document.querySelectorAll('[name="fecha"]');
+
+    // Iterar sobre los inputs de fecha para establecer los límites
+    inputsFecha.forEach(function(input) {
+        // Establecer los límites mínimos y máximos para cada input de fecha
+        input.setAttribute('min', fechaMinima);
+        input.setAttribute('max', fechaMaxima);
+    });
+        </script>
       <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -8,9 +8,7 @@ import bcryptjs from 'bcryptjs'
 import  session from 'express-session'
 import connection from '../database/db.js'
 import router from './routes/authentication.js'
-import router2 from './routes/horas.js'
-
-
+import routerHoras from './routes/horas.js'
 
 
 const app = express()
@@ -30,7 +28,7 @@ app.use(session({
 
 app.use(indexRoutes)
 app.use(router)
-app.use(router2)
+app.use(routerHoras)
 
 
 app.listen(process.env.PORT || 3000, () => {
